@@ -1,6 +1,4 @@
 <?php
-// Original Author: Cabji
-// Initial edit: 20230426
 
 /* Usage: array|bool : signValues(difference (signed float), valueSet (array))
 
@@ -29,7 +27,7 @@
 
     Return Value: 
         The return value is either: 
-            boolean false - will occur if difference cannot be yielded by the valueSet. Meaning: your numbers are bogus or corrupted.
+            boolean false - will occur is difference cannot be yielded by the valueSet. Meaning: your numbers are bogus or corrupted.
             array - if one or more sign combinations can be applied to the valueSet to yield difference, the valueSet(s) will be 
             returned in a multi-dimensional array, eg: 
 
@@ -79,7 +77,7 @@ function signValues ($difference, $valueSet)
         {
             // we found a possible winning sign combination - save it in the return array
             //echo "we found a winning combination\n";
-            array_push($a_return, $a_currentValueSet);
+            $a_return = $a_currentValueSet;
         }
         unset($f_currentDiff, $a_currentValueSet); // unset all the temporary values
     }
