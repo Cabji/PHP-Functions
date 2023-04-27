@@ -2,7 +2,7 @@
 // Original Author: Cabji
 // Initial edit: 20230426
 
-/* Usage: array : signValues(difference (signed float), valueSet (array))
+/* Usage: array|bool : signValues(difference (signed float), valueSet (array))
 
     This function tries to determine a combination of negative and positive values from valueSet to yield difference.
     There are 3 possible outcomes from this function: 
@@ -25,7 +25,7 @@
 
         Note: this function does not do any data sanitization. You should ensure all values are sanitized before passing to the 
         function. Do not pass "currency" values into here ($12,345.67) with or without currency symbols as the comma character will 
-        cause problems. (I think!)
+        cause problems.
 
     Return Value: 
         The return value is either: 
@@ -71,7 +71,7 @@ function signValues ($difference, $valueSet)
             else
             { $i_sign = ""; $f_currentDiff = $f_currentDiff + floatval($valueSet[$i]);} // add the signed valueSet value to f_currentDiff
             
-            array_push($a_currentValueSet, number_format($i_sign.$valueSet[$i],2)); // push signed value into a_currentValueSet (in case it is a winning combo) 
+            array_push($a_currentValueSet, number_format($i_sign.$valueSet[$i],2,".","")); // push signed value into a_currentValueSet (in case it is a winning combo) 
         }
         //echo "[$bi_currentPoss]: $f_currentDiff\n";
         // compare f_currentDiff to difference
